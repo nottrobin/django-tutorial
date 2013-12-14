@@ -3,6 +3,7 @@ from django.template import RequestContext, loader
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.views import generic
+from django.utils import timezone
 from polls.models import Poll, Choice
 
 class IndexView(generic.ListView):
@@ -11,14 +12,21 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published polls."""
-        return Poll.objects.order_by('-pub_date')[:5]
+        return Poll.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
-class DetailView(generic.DetailView):
+class PollView(generic.DetailView):
     model = Poll
+
+    def get_queryset(self):
+        """
+        Excludes any polls that aren't published yet.
+        """
+        return Poll.objects.filter(pub_date__lte=timezone.now())
+
+class DetailView(PollView):
     template_name = 'polls/detail.html'
 
-class ResultsView(generic.DetailView):
-    model = Poll
+class ResultsView(PollView):
     template_name = 'polls/results.html'
 
 def vote(request, poll_id):
