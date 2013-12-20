@@ -1,7 +1,17 @@
-Going through the tutorial from https://docs.djangoproject.com/en/1.6/intro/tutorial01/
+Polls
+=====
+
+Polls is a simple Django app to conduct Web-based polls. For each
+question, visitors can choose between a fixed number of answers.
+
+Dependencies
+-----------
+
+- Python > 3
+- Django > 1.6
 
 Setup
-===
+---
 
 ``` bash
 $ ./manage.py syncdb
