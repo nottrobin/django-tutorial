@@ -1,0 +1,5 @@
+Django==1.6.1
+django-extensions==1.2.5
+django-utils==0.0.2
+gunicorn==18.0
+six==1.4.1
