@@ -24,7 +24,8 @@ $ python3 manage.py runserver
 ### Dependencies
 
 - Python > 3
-- Django > 1.6
-- django-extensions
 
-    sudo apt-get install python3 python3-pip && pip3 install django django-extensions
+``` bash
+$ sudo apt-get install python3 python3-pip
+$ sudo pip3 install -r requirements.txt
+```
