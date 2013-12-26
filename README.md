@@ -23,7 +23,7 @@ $ python3 manage.py runserver
 
 ### Dependencies
 
-- Python > 3
+You need Python 3.x installed, along with the [dependency modules](requirements.txt).
 
 ``` bash
 $ sudo apt-get install python3 python3-pip
